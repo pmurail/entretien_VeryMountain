@@ -1,17 +1,22 @@
+window.addEventListener('load', function ()  {
 // Exercice 1
 // Comparez deux tableaux et renvoyez un nouveau tableau avec tous les éléments trouvés uniquement dans l'un des deux tableaux donnés, mais pas les deux.
 // En d'autres termes, renvoie la différence symétrique des deux tableaux.
 // Remarque : Vous pouvez renvoyer le tableau avec ses éléments dans n'importe quel ordre.
 
 // Exemple : ["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"] should return ["pink wool"].
+
 function arrayDiff(arr1, arr2) {
     // TODO
-    const newArr = [];
+    const newArr = arr1.filter(element => !arr2.includes(element))
+    .concat(arr2.filter(element => !arr1.includes(element)));    
     return newArr;
+    
 }
-
 const ex1 = arrayDiff([1, 2, 3, 5], [1, 2, 3, 4, 5]);
 document.getElementById('exercice1').value = ex1.toString();
+console.log(ex1.toString())
+
 
 // Exercice 2
 // Effectuez une recherche et un remplacement sur la phrase en utilisant les arguments fournis et renvoyez la nouvelle phrase.
@@ -132,3 +137,4 @@ const ex6 = groupBy([
     },
 ]);
 document.getElementById('exercice6').value = ex6.toString();
+})
