@@ -30,6 +30,7 @@ console.log(ex1.toString())
 //
 // Exemple : replaceText("He is Sleeping on the couch", "Sleeping", "sitting") devrait retourner "He is Sitting on the couch".
 function replaceText(str, before, after) {
+    //TODO
     const replacedText = str.replace(() => {
       if (before[0] === before[0].toUpperCase()) {
         return after[0].toUpperCase() + after.slice(1);
@@ -51,6 +52,7 @@ document.getElementById('exercice2').value = ex2.toString();
 
 // Exemple : mergeSet([1, 2, 3], [5, 2, 1]) should return [1, 2, 3, 5].
 function mergeSet(...arrays) {
+    //TODO
     const mergedArray = [].concat(...arrays);
     const uniqueValues = [];
     for (let i = 0; i < mergedArray.length; i++) {
@@ -72,9 +74,14 @@ document.getElementById('exercice3').value = ex3.toString();
 //
 // Exemple : isTrue([{name: "Pikachu", number: 25, caught: 3}, {name: "Togepi", number: 175, caught: 1}], "number") devrait retourner true.
 function isTrue(collection, pre) {
-    // TODO
-    return pre;
-}
+    //TODO
+    for (let i = 0; i < collection.length; i++) {
+      if (!collection[i][pre]) {
+        return false;
+      }
+    }
+    return true;
+  }
 
 const ex4 = isTrue([{name: 'Quincy', role: 'Founder', isBot: false}, {
     name: 'Naomi',
