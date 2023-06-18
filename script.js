@@ -15,7 +15,6 @@ function arrayDiff(arr1, arr2) {
 }
 const ex1 = arrayDiff([1, 2, 3, 5], [1, 2, 3, 4, 5]);
 document.getElementById('exercice1').value = ex1.toString();
-console.log(ex1.toString())
 
 
 // Exercice 2
@@ -95,9 +94,10 @@ document.getElementById('exercice4').value = ex4.toString();
 //
 // La fonction de tri prend une collection en entrée, et doit retourner celle ordonnée par ordre alphabétique
 function order(collection) {
-    // TODO
-    return collection;
-}
+    //TODO
+    const sortedCollection = collection.slice().sort();
+    return sortedCollection;
+  }
 
 const ex5 = order(['Randonnée', 'VTT', 'Montagne', 'Via Ferrata']);
 document.getElementById('exercice5').value = ex5.toString();
@@ -121,9 +121,29 @@ document.getElementById('exercice5').value = ex5.toString();
 // Le résultat doit bien être formaté comme suit => [Movie : Lord of the ring,Predestination],[Show : Sherlock,Black mirror]
 
 function groupBy(collection) {
-    // TODO
-    return collection;
-}
+    //TODO
+    const groupedItems = []; 
+    for (let i = 0; i < collection.length; i++) {
+      const item = collection[i]; 
+      const categoryIndex = groupedItems.findIndex(
+        (group) => group.category === item.category
+      );  
+      if (categoryIndex !== -1) {
+        groupedItems[categoryIndex].items.push(item);
+      }
+      else {
+        groupedItems.push({
+          category: item.category,
+          items: [item],
+          toString: function () {
+            const itemTitles = this.items.map((item) => item.title);
+            return `${this.category} : ${itemTitles.join(",")}`;
+          },
+        });
+      }
+    }
+    return groupedItems;
+  }
 
 const ex6 = groupBy([
     {
