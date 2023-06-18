@@ -30,11 +30,17 @@ console.log(ex1.toString())
 //
 // Exemple : replaceText("He is Sleeping on the couch", "Sleeping", "sitting") devrait retourner "He is Sitting on the couch".
 function replaceText(str, before, after) {
-    // TODO
-    return str;
-}
+    const replacedText = str.replace(() => {
+      if (before[0] === before[0].toUpperCase()) {
+        return after[0].toUpperCase() + after.slice(1);
+      } else {
+        return after.toLowerCase();
+      }
+    });
+    return replacedText;
+  }
 
-const ex2 = replaceText('Let us go to the store', 'store', 'mall');
+const ex2 = replaceText("Let us go to the store", "store", "mall") ;
 document.getElementById('exercice2').value = ex2.toString();
 
 // Exercice 3
