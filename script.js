@@ -50,9 +50,15 @@ document.getElementById('exercice2').value = ex2.toString();
 // Vérifiez les tests d'assertion pour des exemples.
 
 // Exemple : mergeSet([1, 2, 3], [5, 2, 1]) should return [1, 2, 3, 5].
-function mergeSet(arr) {
-    // TODO
-    return arr;
+function mergeSet(...arrays) {
+    const mergedArray = [].concat(...arrays);
+    const uniqueValues = [];
+    for (let i = 0; i < mergedArray.length; i++) {
+      if (!uniqueValues.includes(mergedArray[i])) {
+        uniqueValues.push(mergedArray[i]);
+      }
+    }
+    return uniqueValues;
 }
 
 const ex3 = mergeSet([1, 3, 2], [5, 2, 1, 4], [2, 1]);
